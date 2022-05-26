@@ -1,4 +1,2 @@
 #!/bin/bash
-./6-firstdirectory
-touch /tmp/betty
 mv /tmp/betty /tmp/my_first_directory

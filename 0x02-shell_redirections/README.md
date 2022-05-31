@@ -25,3 +25,4 @@
 24. A gif is worth ten thousand words
 25. Acrostic
 26. The biggest fan  
+26. The biggest fan  

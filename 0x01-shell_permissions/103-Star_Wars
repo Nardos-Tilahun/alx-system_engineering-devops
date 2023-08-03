@@ -1,2 +1,2 @@
-sudo apt-get install mplayer libcaca-dev
-mplayer -vo caca StarWars.mp4
+#!/bin/bash
+telnet towel.blinkenlights.nl

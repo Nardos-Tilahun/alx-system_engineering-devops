@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1 | grep . | nl -b p | cut -f 1,2 | grep '^[02468]' | cut -f 2
+paste -d, -- | cut -d, -f1

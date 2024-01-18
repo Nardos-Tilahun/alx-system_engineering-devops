@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash script that gives you information about the school file.
+# print information about the school file.
 file_name="school"
 
 if [ -e "$file_name" ]; then

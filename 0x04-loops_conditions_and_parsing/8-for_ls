@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# print file names without the number prefix
+# print file names without numbers prefix
 
 for file_name in *
 do

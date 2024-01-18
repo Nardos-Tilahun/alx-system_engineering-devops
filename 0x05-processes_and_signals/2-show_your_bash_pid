@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#print currently running processes.
+$"ps" "faux" | grep "bash"

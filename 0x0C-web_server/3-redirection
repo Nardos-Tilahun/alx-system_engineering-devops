@@ -1,19 +1,15 @@
 #!/usr/bin/env bash
-# Install and configure nginx for redirection
+# Configure Nginx server so that /redirect_me is redirecting to another page
 
-function install_and_configure_nginx(){
-    sudo apt-get update
-    sudo apt-get -y install nginx
-    sudo chown -R "$USER":"$USER" /var/www/html/
-    echo 'Hello World!' > /var/www/html/index.html
-    sudo chown -R "$USER":"$USER" /etc/nginx/sites-available/
-    redirect="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-    sudo sed -i "26i $redirect" /etc/nginx/sites-available/default
+# Install nginx
+sudo apt-get update
+sudo apt-get install -y nginx
 
-    if [[ $(pgrep nginx) ]]; then
-        sudo nginx -s reload
-    else
-        sudo service nginx start
-    fi
-}
-install_and_configure_nginx;
+
+# add the following configuration to the existing server block
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.google.com permanent;"
+
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# Restart Nginx
+service nginx restart

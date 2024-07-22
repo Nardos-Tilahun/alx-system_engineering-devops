@@ -2,23 +2,13 @@
 # Configures a new ubuntu machine by installing
 # Nginx where it should be listening on port 80
 # Serve a page that would return a Hello World string
+#
 
-# Install nginx
-sudo apt-get update
-sudo apt-get install -y nginx
+echo -e "Updating and installing Nginx.\n"
+sudo apt-get update -y -qq && \
+	 sudo apt-get install nginx -y
 
-echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
-
-# add the following configuration to the existing server block
-string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.google.com permanent;"
-
-sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
-
-# code for error page and redirect error 404
-echo "Ceci n'est pas une page" > /var/www/html/404.html
-
-string_for_replacement="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
-sudo sed -i "s/listen 80 default_server;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+echo -e "\nSetting up some minor stuff.\n"
 
 # starting nginx service
 sudo service nginx start
@@ -46,4 +36,4 @@ sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/de
 # Restarting nginx
 sudo service nginx restart
 
-echo -e "\n${green}Completed.${reset} ✅\n"
+echo -e "\nCompleted.\n"

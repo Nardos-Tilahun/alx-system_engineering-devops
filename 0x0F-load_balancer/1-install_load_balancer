@@ -41,7 +41,7 @@ frontend natida-tech-frontend
 backend natida-tech-backend
     balance roundrobin
     server 49168-web-01 100.26.164.186:80 check
-    server 49168-web-02 54.210.99.247:80 check
+    server 49168-web-02 54.227.169.99:80:80 check
 "
 
 # shellcheck disable=SC2154

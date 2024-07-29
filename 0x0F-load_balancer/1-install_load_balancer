@@ -34,11 +34,11 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend clickviral-tech-frontend
+frontend natida-tech-frontend
     bind *:80
     default_backend natida-tech-backend
 
-backend clickviral-tech-backend
+backend natida-tech-backend
     balance roundrobin
     server 49168-web-01 100.26.164.186:80 check
     server 49168-web-02 54.210.99.247:80 check

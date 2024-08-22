@@ -7,5 +7,3 @@
 0x04-loops_conditions_and_parsing
 
 x05-processes_and_signals
-advance_api
-0x19-postmortem
